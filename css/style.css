@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+/* font-family: 'Overpass', sans-serif; */
+
+:root {
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --medium-grey: hsl(216, 12%, 54%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+
+    --fs-heading: 1.5rem;
+    --fs-para: 0.9375rem;
+} 
+
+
+/* ******************** */
+/*  RESET  */
+/* ******************** */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ******************** */
+/*  GLOBAL  */
+/* ******************** */
+
+body {
+    font-family: 'Overpass', sans-serif;
+    background-color: var(--very-dark-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+p {
+    font-size: clamp(var(--fs-para), 3vw, 1.1rem);
+    color: var(--light-grey);
+}
+
+li {
+    list-style: none;
+}
+
+
+
+
+/* ******************** */
+/*  FRONT CARD  */
+/* ******************** */
+
+.front-card,
+.back-card {
+    max-width: 25rem;
+    background-color: var(--dark-blue);
+    padding: max(32px, 2vw);
+    border-radius: 15px;
+    margin: 1.5rem;
+}
+
+.star {
+    width: min(10vw, 50px);
+    height: min(10vw, 50px);
+    background-color: hsl(216, 12%, 13%);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-block-end: 1rem;
+}
+
+.star > img {
+    animation: starUpDown 800ms infinite;
+}
+
+@keyframes starUpDown {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.front-card > h1 {
+    margin-block-end: 1rem;
+}
+
+.front-card > p {
+    margin-block-end: 1.5rem;
+    line-height: 1.7;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 1.5rem;
+}
+
+.options li a {
+    width: min(10vw, 50px);
+    height: min(10vw, 50px);
+    text-decoration: none;
+    background-color: hsl(216, 12%, 13%);
+    border-radius: 50%;
+    font-size: clamp(var(--fs-para), 3vw, 1.1rem);
+    font-weight: 700;
+    line-height: normal;
+    color: hsl(217, 12%, 70%);
+    display: inline-block;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 250ms ease;
+
+    position: relative;
+}
+
+.options li a::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--orange);
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0);
+    transition: transform 350ms ease;
+}
+
+.options li a:hover::after {
+    transform: scale(1);
+}
+
+.options li a:hover {
+    color: var(--white);
+    transform: scale(1.2)
+}
+
+.options li a:focus {
+    background-color: var(--medium-grey);
+    color: var(--white);
+}
+
+button {
+    width: 100%;
+    border: none;
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 1em;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: clamp(var(--fs-para), 3vw, 1rem);
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+button:hover {
+    background-color: var(--white);
+    color: var(--orange);
+}
+
+
+
+
+/* ******************** */
+/*  BACK CARD */
+/* ******************** */
+
+.back-card {
+    text-align: center;
+    display: none;
+}
+
+.back-card > img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-block-end: 2rem;
+}
+
+.back-card > h1 {
+    margin-block-end: 0.5rem;
+}
+
+.back-card > p:nth-child(2) {
+    background-color: hsl(213, 19%, 25%);
+    color: var(--orange);
+    border-radius: 20px;
+    display: inline-block;
+    padding: 0.3rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+
