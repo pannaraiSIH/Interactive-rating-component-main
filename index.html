@@ -23,14 +23,31 @@
         Please let us know how we did with your support request. All feedback is appreciated
         to help us improve our offering!
       </p>
-      <ol class="options">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-      </ol>
-      <button>Submit</button>
+      <form action="#">
+        <fieldset class="options">
+          <div>
+            <input type="radio" id="number1" name="rating" value="1">
+            <label for="number1">1</label>
+          </div>
+          <div>
+            <input type="radio" id="number2" name="rating" value="2">
+            <label for="number2">2</label>
+          </div>
+          <div>
+            <input type="radio" id="number3" name="rating" value="3">
+            <label for="number3">3</label>
+          </div>
+          <div>
+            <input type="radio" id="number4" name="rating" value="4">
+            <label for="number4">4</label>
+          </div>
+          <div>
+            <input type="radio" id="number5" name="rating" value="5">
+            <label for="number5">5</label>
+          </div>
+        </fieldset>
+        <button type="submit" disabled>Submit</button>
+      </form>
     </article>
 
     <!-- Rating state end -->
@@ -40,9 +57,9 @@
     <article class="back-card">
       <img src="images/illustration-thank-you.svg" alt="" aria-hidden="true">
       <p>
-        You selected
+        
         <span class="rating"></span> 
-        out of 5
+        
       </p>
       <h1>Thank you!</h1>
       <p>
